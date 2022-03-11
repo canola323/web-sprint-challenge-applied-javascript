@@ -37,7 +37,6 @@ const Tabs = (topics) => {
   return tabsTopics;
 }
 
-Tabs(topics);
 
 const tabsAppender = (selector) => {
   // TASK 4
