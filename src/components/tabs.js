@@ -16,25 +16,16 @@ const Tabs = (topics) => {
   // </div>
   //
 
-  const tabsTopics = document.createElement('div');
-  const javascriptTab = document.createElement('div');
-  const bootstrapTab = document.createElement('div');
-  const technologyTab = document.createElement('div');
-
-  javascriptTab.textContent = topics[0];
-  bootstrapTab.textContent = topics[1];
-  technologyTab.textContent = topics[2];
-
-  tabsTopics.appendChild(javascriptTab);
-  tabsTopics.appendChild(bootstrapTab);
-  tabsTopics.appendChild(technologyTab);
-
-  tabsTopics.classList.add('topics');
-  javascriptTab.classList.add('tab');
-  bootstrapTab.classList.add('tab');
-  technologyTab.classList.add('tab');
-
-  return tabsTopics;
+  const topicsContainer = document.createElement('div');
+  topicsContainer.classList.add('topics');
+  topics.forEach(topic => {
+    // console.log(topic);
+    const newTab = document.createElement('div');
+    newTab.classList.add('tab');
+    newTab.textContent = topic;
+    topicsContainer.appendChild(newTab);
+  })
+  return topicsContainer
 }
 
 
@@ -46,17 +37,17 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
-//   const entryPoint = document.querySelector('.tabs-container');
-//   axios.get(`http://localhost:5000/api/topics`)
-//   .then(resp => {
-//     const tab = Tabs(resp);
-//     entryPoint.appendChild(tab);
-//     })
-//   }).catch(err => {
-//     console.error(err);
-//   }).finally(() => {
-//     console.log('Taco Tuesday!');
-//   })
- }
+  const entryPoint = document.querySelector(selector);
+  axios.get(`http://localhost:5000/api/topics`)
+  .then(resp => {
+    // console.log(resp);
+    const array = resp.data.topics;
+    const tabsContent = Tabs(array);
+    console.log(tabsContent);
+    entryPoint.appendChild(tabsContent);
+    }).catch(err => {
+    console.error(err);
+  })
+}
 
 export { Tabs, tabsAppender }

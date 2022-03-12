@@ -60,7 +60,20 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 Demonstrate your understanding of this week's concepts by answering the following questions:
 
 1. What is the DOM?
+
+DOM stands for Document Object Model, it represents a page so that programs can change the document structure, style, and content.
+
 2. What is an event?
+
+An event is a occurrence or action that happens which lets your code know how to react.
+
 3. What is an event listener?
+
+An eventListener is whats reacts after an event happens.
+
 4. Why would we convert a NodeList into an Array?
+
+
 5. What is a component?
+
+It's an idependant reusable piece of code.
